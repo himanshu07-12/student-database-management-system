@@ -30,9 +30,9 @@ print(message)"""
 """from students import update_student
 
 success, message = update_student(
-    102,
+    999,
     "fname",
-    "Vaishnavi"
+    "ABC"
 )
 
 print(success)
