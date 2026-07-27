@@ -43,7 +43,26 @@ def insert_student(adm, first, last, roll, mobile):
 
 
 def delete_student(adm):
-    pass
+    mydb = get_connection()
+    mycursor = mydb.cursor()
+
+    query = '''SELECT admno FROM student WHERE admno = %s'''
+    mycursor.execute(query, (adm,))
+    student = mycursor.fetchone()
+
+    if not student:
+        mycursor.close()
+        mydb.close()
+        return False, "Student Not Found"
+
+    query = '''DELETE FROM student WHERE admno = %s'''
+    mycursor.execute(query, (adm,))
+    mydb.commit()
+
+    mycursor.close()
+    mydb.close()
+
+    return True, "Student Deleted Successfully"
 
 
 def update_student(adm, field, value):
@@ -51,4 +70,19 @@ def update_student(adm, field, value):
 
 
 def view_students():
-    pass
+    mydb = get_connection()
+    mycursor = mydb.cursor(dictionary=True)
+
+    query = """
+    SELECT *
+    FROM student
+    """
+
+    mycursor.execute(query)
+
+    students = mycursor.fetchall()
+
+    mycursor.close()
+    mydb.close()
+
+    return students
