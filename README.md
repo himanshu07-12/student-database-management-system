@@ -1,9 +1,34 @@
-Student Database Management System
+# Student Database Management System
 
-* Developed a web-based Student Database Management System using Python, Flask, MySQL, HTML, CSS, Bootstrap, and JavaScript.
+A web-based Student Database Management System developed using Python, Flask, and MySQL.
 
-* Implemented secure user authentication and CRUD operations for student records.
+## Features
 
-* Designed a responsive dashboard with login history and database integration.
+- User Login
+- User Signup
+- Add Student
+- View Students
+- Update Student
+- Delete Student
+- Login History
 
-* Structured the project using modular architecture and version-controlled it with Git and GitHub.
+## Technologies Used
+
+- Python
+- Flask
+- MySQL
+- HTML
+- CSS
+- Bootstrap
+- Git
+- GitHub
+
+## Project Structure
+
+```
+Student-Database-Management-System/
+```
+
+## Author
+
+Himanshu Tripathi
