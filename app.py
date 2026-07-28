@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from auth import login
 
 app = Flask(__name__)
@@ -20,7 +20,7 @@ def login_page():
         success = login(login_id, username, password)
 
         if success:
-            return "Login Successful"
+            return redirect("/dashboard")
 
         else:
             return "Invalid Credentials"
@@ -31,6 +31,10 @@ def login_page():
 @app.route("/signup")
 def signup():
     return render_template("signup.html")
+
+@app.route("/dashboard")
+def dashboard():
+    return render_template("dashboard.html")
 
 
 if __name__ == "__main__":
