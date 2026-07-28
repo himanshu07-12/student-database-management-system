@@ -1,39 +1,21 @@
-#to insert a student into the database
-"""from students import insert_student
+from flask import Flask, render_template
 
-success, message = insert_student(
-    103,
-    "Divyanshu",
-    "Tripathi",
-    12,
-    7355525494
-)
+app = Flask(__name__)
 
-print(success)
-print(message)"""
-# to view all students in the database
-"""from students import view_students
+@app.route("/")
+def home():
+    return render_template("index.html")
 
-students = view_students()
 
-for student in students:
-    print(student)
-"""     
-#to delete a student in the database
-"""from students import delete_student
+@app.route("/login")
+def login():
+    return render_template("login.html")
 
-success, message = delete_student(101)
 
-print(success)
-print(message)"""
-#to update a student in the database
-"""from students import update_student
+@app.route("/signup")
+def signup():
+    return render_template("signup.html")
 
-success, message = update_student(
-    999,
-    "fname",
-    "ABC"
-)
 
-print(success)
-print(message)"""
+if __name__ == "__main__":
+    app.run(debug=True)
