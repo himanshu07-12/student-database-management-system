@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect
 from auth import login
+from students import view_students
 
 app = Flask(__name__)
 
@@ -38,7 +39,14 @@ def dashboard():
 
 @app.route("/students")
 def students_page():
-    return "Students Page"
+
+    students = view_students()
+    print(students)
+
+    return render_template(
+        "students.html",
+        students=students
+    )
 
 
 @app.route("/add")
