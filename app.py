@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect
 from auth import login
-from students import view_students,insert_student, update_student, delete_student
+from students import view_students,insert_student, update_student, delete_student, search_student
 
 app = Flask(__name__)
 
@@ -90,10 +90,21 @@ def delete_page():
 def logout():
     return redirect("/")
 
-@app.route("/search")
+@app.route("/search", methods=["GET", "POST"])
 def search_page():
-    return "Search Student Page"
 
+    students = []
+
+    if request.method == "POST":
+
+        keyword = request.form["keyword"]
+
+        students = search_student(keyword)
+
+    return render_template(
+        "search.html",
+        students=students
+    )
 
 if __name__ == "__main__":
     app.run(debug=True)
