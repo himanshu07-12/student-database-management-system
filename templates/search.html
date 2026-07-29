@@ -1,0 +1,68 @@
+<form method="POST">
+
+<input
+class="form-control"
+name="keyword"
+placeholder="Admission Number or Roll Number">
+
+<br>
+
+<button class="btn btn-primary">
+
+Search
+
+</button>
+
+</form>
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="mb-4">
+
+All Students
+
+</h2>
+
+<table class="table table-bordered table-striped">
+
+<thead class="table-dark">
+
+<tr>
+
+<th>Admission No</th>
+<th>First Name</th>
+<th>Last Name</th>
+<th>Roll No</th>
+<th>Mobile</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for student in students %}
+
+<tr>
+
+<td>{{ student.admno }}</td>
+
+<td>{{ student.fname }}</td>
+
+<td>{{ student.lname }}</td>
+
+<td>{{ student.roll }}</td>
+
+<td>{{ student.mobno }}</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+{% endblock %}
