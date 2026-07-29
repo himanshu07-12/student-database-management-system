@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect
 from auth import login
-from students import view_students
+from students import view_students,insert_student, update_student, delete_student
 
 app = Flask(__name__)
 
@@ -49,9 +49,31 @@ def students_page():
     )
 
 
-@app.route("/add")
+@app.route("/add", methods=["GET", "POST"])
 def add_page():
-    return "Add Student Page"
+
+    if request.method == "POST":
+
+        adm = request.form["admno"]
+        fname = request.form["fname"]
+        lname = request.form["lname"]
+        roll = request.form["roll"]
+        mobno = request.form["mobno"]
+
+        success, message = insert_student(
+            adm,
+            fname,
+            lname,
+            roll,
+            mobno
+        )
+
+        if success:
+            return redirect("/students")
+
+        return message
+
+    return render_template("add_student.html")
 
 
 @app.route("/update")
