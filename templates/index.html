@@ -1,24 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Database Management System</title>
-</head>
+{% block content %}
 
-<body>
+<div class="text-center">
 
-    <h1>Student Database Management System</h1>
+<h1>Welcome</h1>
 
-    <p>Welcome to the Student Database Management System.</p>
+<p>
 
-    <a href="/login">Login</a>
+Student Database Management System
 
-    <br><br>
+</p>
 
-    <a href="/signup">Signup</a>
+<a
+class="btn btn-primary"
+href="/login">
 
-</body>
+Login
 
-</html>
+</a>
+
+<a
+class="btn btn-success"
+href="/signup">
+
+Signup
+
+</a>
+
+</div>
+
+{% endblock %}
