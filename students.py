@@ -151,3 +151,30 @@ def view_students():
     mydb.close()
 
     return students
+
+def search_student(keyword):
+
+    mydb = get_connection()
+    mycursor = mydb.cursor(dictionary=True)
+
+    query = """
+    SELECT
+        ADMNO AS admno,
+        FNAME AS fname,
+        LNAME AS lname,
+        ROLL AS roll,
+        MOBNO AS mobno
+    FROM student
+    WHERE
+        ADMNO=%s
+        OR ROLL=%s
+    """
+
+    mycursor.execute(query, (keyword, keyword))
+
+    student = mycursor.fetchall()
+
+    mycursor.close()
+    mydb.close()
+
+    return student
