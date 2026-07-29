@@ -134,7 +134,12 @@ def view_students():
     mycursor = mydb.cursor(dictionary=True)
 
     query = """
-    SELECT *
+    SELECT 
+    ADMNO as admno,
+    FNAME as fname,
+    LNAME as lname,
+    ROLL as roll,
+    MOBNO as mobno
     FROM student
     """
 
