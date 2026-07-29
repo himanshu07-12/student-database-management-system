@@ -36,6 +36,34 @@ def signup():
 def dashboard():
     return render_template("dashboard.html")
 
+@app.route("/students")
+def students_page():
+    return "Students Page"
+
+
+@app.route("/add")
+def add_page():
+    return "Add Student Page"
+
+
+@app.route("/update")
+def update_page():
+    return "Update Student Page"
+
+
+@app.route("/delete")
+def delete_page():
+    return "Delete Student Page"
+
+
+@app.route("/logout")
+def logout():
+    return redirect("/")
+
+@app.route("/search")
+def search_page():
+    return "Search Student Page"
+
 
 if __name__ == "__main__":
     app.run(debug=True)
