@@ -107,9 +107,12 @@ def update_page(adm):
     )
 
 
-@app.route("/delete")
-def delete_page():
-    return "Delete Student Page"
+@app.route("/delete/<int:adm>")
+def delete_page(adm):
+
+    success, message = delete_student(adm)
+
+    return redirect("/students")
 
 
 @app.route("/logout")

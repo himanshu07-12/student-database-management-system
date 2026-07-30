@@ -43,11 +43,18 @@ All Students
 
 <td>
 
-<a
-href="/update/{{ student.admno }}"
+<a href="/update/{{ student.admno }}"
 class="btn btn-warning btn-sm">
 
-Edit
+✏️ Edit
+
+</a>
+
+<a href="/delete/{{ student.admno }}"
+class="btn btn-danger btn-sm"
+onclick="return confirm('Are you sure you want to delete this student?')">
+
+🗑 Delete
 
 </a>
 
