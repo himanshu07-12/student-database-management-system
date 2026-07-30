@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, session
 from auth import login
+from utils import login_required
 from students import view_students,insert_student, update_student, delete_student, search_student, get_student
 
 app = Flask(__name__)
@@ -36,13 +37,12 @@ def signup():
     return render_template("signup.html")
 
 @app.route("/dashboard")
+@login_required
 def dashboard():
-    if "user" in session:
-        return render_template("dashboard.html")
-    else:
-        return redirect("/login")
+    return render_template("dashboard.html")
 
 @app.route("/students")
+@login_required
 def students_page():
 
     students = view_students()
@@ -55,6 +55,7 @@ def students_page():
 
 
 @app.route("/add", methods=["GET", "POST"])
+@login_required
 def add_page():
 
     if request.method == "POST":
@@ -82,6 +83,7 @@ def add_page():
 
 
 @app.route("/update/<int:adm>", methods=["GET","POST"])
+@login_required
 def update_page(adm):
 
     if request.method=="POST":
@@ -113,6 +115,7 @@ def update_page(adm):
 
 
 @app.route("/delete/<int:adm>")
+@login_required
 def delete_page(adm):
 
     success, message = delete_student(adm)
@@ -122,9 +125,11 @@ def delete_page(adm):
 
 @app.route("/logout")
 def logout():
+    session.clear()
     return redirect("/")
 
 @app.route("/search", methods=["GET", "POST"])
+@login_required
 def search_page():
 
     students = []
