@@ -1,8 +1,9 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, session
 from auth import login
 from students import view_students,insert_student, update_student, delete_student, search_student, get_student
 
 app = Flask(__name__)
+app.secret_key = "student_database_secret_key"
 
 @app.route("/")
 def home():
@@ -21,7 +22,8 @@ def login_page():
         success = login(login_id, username, password)
 
         if success:
-            return redirect("/dashboard")
+           session["user"] = username
+           return redirect("/dashboard")
 
         else:
             return "Invalid Credentials"
@@ -35,7 +37,10 @@ def signup():
 
 @app.route("/dashboard")
 def dashboard():
-    return render_template("dashboard.html")
+    if "user" in session:
+        return render_template("dashboard.html")
+    else:
+        return redirect("/login")
 
 @app.route("/students")
 def students_page():
