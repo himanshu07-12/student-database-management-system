@@ -19,6 +19,7 @@ All Students
 <th>Last Name</th>
 <th>Roll No</th>
 <th>Mobile</th>
+<th>Actions</th>
 
 </tr>
 
@@ -39,6 +40,18 @@ All Students
 <td>{{ student.roll }}</td>
 
 <td>{{ student.mobno }}</td>
+
+<td>
+
+<a
+href="/update/{{ student.admno }}"
+class="btn btn-warning btn-sm">
+
+Edit
+
+</a>
+
+</td>
 
 </tr>
 
