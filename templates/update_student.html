@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="mb-4">Update Student</h2>
+
+<form method="POST">
+
+    <div class="mb-3">
+        <label>Admission Number</label>
+        <input
+        class="form-control"
+        value="{{ student.admno }}"
+        readonly>
+    </div>
+
+    <div class="mb-3">
+        <label>First Name</label>
+        <input class="form-control"
+               type="text"
+               name="fname"
+               value="{{ student.fname }}"
+               required>
+    </div>
+
+    <div class="mb-3">
+        <label>Last Name</label>
+        <input class="form-control"
+               type="text"
+               name="lname"
+               value="{{ student.lname }}"
+               required>
+    </div>
+
+    <div class="mb-3">
+        <label>Roll Number</label>
+        <input class="form-control"
+               type="number"
+               name="roll"
+               value="{{ student.roll }}"
+               required>
+    </div>
+
+    <div class="mb-3">
+        <label>Mobile Number</label>
+        <input class="form-control"
+               type="number"
+               name="mobno"
+               value="{{ student.mobno }}"
+               required>
+    </div>
+
+    <button class="btn btn-success">
+        Update Student
+    </button>
+
+</form>
+
+{% endblock %}
