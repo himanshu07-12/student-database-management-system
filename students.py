@@ -65,68 +65,72 @@ def delete_student(adm):
     return True, "Student Deleted Successfully"
 
 
-def update_student(adm, field, value):
+def update_student(adm, fname, lname, roll, mobno):
 
     mydb = get_connection()
     mycursor = mydb.cursor()
 
-    query = "SELECT admno FROM student WHERE admno=%s"
-    mycursor.execute(query, (adm,))
-    student = mycursor.fetchone()
+    # Check if student exists
+    query = """
+    SELECT ADMNO
+    FROM student
+    WHERE ADMNO=%s
+    """
 
-    if not student:
+    mycursor.execute(query, (adm,))
+
+    if not mycursor.fetchone():
         mycursor.close()
         mydb.close()
         return False, "Student not found"
 
-    allowed_fields = [
-        "admno",
-        "fname",
-        "lname",
-        "roll",
-        "mobno"
-    ]
-
-    if field not in allowed_fields:
-        mycursor.close()
-        mydb.close()
-        return False, "Invalid field"
-
-    if field == "mobno":
-        if len(str(value)) != 10:
-            mycursor.close()
-            mydb.close()
-            return False, "Invalid Mobile Number"
-
-    if field == "roll":
-        query = "SELECT roll FROM student WHERE roll=%s"
-        mycursor.execute(query, (value,))
-        if mycursor.fetchone():
-            mycursor.close()
-            mydb.close()
-            return False, "Roll Number already exists"
-
-    if field == "admno":
-        query = "SELECT admno FROM student WHERE admno=%s"
-        mycursor.execute(query, (value,))
-        if mycursor.fetchone():
-            mycursor.close()
-            mydb.close()
-            return False, "Admission Number already exists"
-
-    query = f"""
-    UPDATE student
-    SET {field}=%s
-    WHERE admno=%s
+    # Check duplicate roll number
+    query = """
+    SELECT ADMNO
+    FROM student
+    WHERE ROLL=%s
+    AND ADMNO!=%s
     """
 
-    mycursor.execute(query, (value, adm))
+    mycursor.execute(query, (roll, adm))
+
+    if mycursor.fetchone():
+        mycursor.close()
+        mydb.close()
+        return False, "Roll Number already exists"
+
+    # Validate mobile number
+    if len(str(mobno)) != 10:
+        mycursor.close()
+        mydb.close()
+        return False, "Mobile Number must contain exactly 10 digits"
+
+    # Update
+    query = """
+    UPDATE student
+
+    SET
+        FNAME=%s,
+        LNAME=%s,
+        ROLL=%s,
+        MOBNO=%s
+
+    WHERE ADMNO=%s
+    """
+
+    mycursor.execute(
+        query,
+        (fname, lname, roll, mobno, adm)
+    )
+
     mydb.commit()
 
     mycursor.close()
     mydb.close()
 
     return True, "Student Updated Successfully"
+
+    
 
 
 def view_students():
