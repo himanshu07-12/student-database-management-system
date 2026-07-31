@@ -207,3 +207,19 @@ def get_student(adm):
     mydb.close()
 
     return student
+
+def get_dashboard_stats():
+
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT COUNT(*) FROM student")
+    student_count = cursor.fetchone()[0]
+
+    cursor.execute("SELECT COUNT(*) FROM user_details")
+    user_count = cursor.fetchone()[0]
+
+    cursor.close()
+    conn.close()
+
+    return student_count, user_count
