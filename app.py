@@ -1,5 +1,8 @@
 from flask import Flask, render_template, request, redirect, session, flash
 from auth import login
+import csv
+from io import StringIO
+from flask import make_response
 from utils import login_required
 from students import view_students,insert_student, update_student, delete_student, search_student, get_student, get_dashboard_stats
 
@@ -161,6 +164,43 @@ def search_page():
         "search.html",
         students=students
     )
+
+@app.route("/export")
+@login_required
+def export_students():
+
+    students = view_students()
+
+    output = StringIO()
+
+    writer = csv.writer(output)
+
+    writer.writerow([
+        "Admission No",
+        "First Name",
+        "Last Name",
+        "Roll No",
+        "Mobile"
+    ])
+
+    for student in students:
+
+        writer.writerow([
+            student["admno"],
+            student["fname"],
+            student["lname"],
+            student["roll"],
+            student["mobno"]
+        ])
+
+    response = make_response(output.getvalue())
+
+    response.headers["Content-Disposition"] = \
+        "attachment; filename=students.csv"
+
+    response.headers["Content-type"] = "text/csv"
+
+    return response
 
 if __name__ == "__main__":
     app.run(debug=True)
