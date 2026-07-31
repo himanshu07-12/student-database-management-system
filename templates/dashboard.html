@@ -2,19 +2,41 @@
 
 {% block content %}
 
-<h2>Dashboard</h2>
+<div class="container mt-4">
 
-<div class="row mb-4">
+    <h2 class="text-center mb-4">
+        Student Database Dashboard
+    </h2>
 
-    <div class="col-md-6">
+    <div class="row mb-4">
 
-        <div class="card text-center shadow">
+        <div class="col-md-6">
 
-            <div class="card-body">
+            <div class="card shadow text-center">
 
-                <h5>Total Students</h5>
+                <div class="card-body">
 
-                <h2>{{ student_count }}</h2>
+                    <h5>Total Students</h5>
+
+                    <h1>{{ student_count }}</h1>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-6">
+
+            <div class="card shadow text-center">
+
+                <div class="card-body">
+
+                    <h5>Total Users</h5>
+
+                    <h1>{{ user_count }}</h1>
+
+                </div>
 
             </div>
 
@@ -22,49 +44,41 @@
 
     </div>
 
-    <div class="col-md-6">
+    <div class="row g-3">
 
-        <div class="card text-center shadow">
+        <div class="col-md-6">
+            <a href="/students" class="btn btn-primary w-100 p-3">
+                📋 View Students
+            </a>
+        </div>
 
-            <div class="card-body">
+        <div class="col-md-6">
+            <a href="/add" class="btn btn-success w-100 p-3">
+                ➕ Add Student
+            </a>
+        </div>
 
-                <h5>Total Users</h5>
+        <div class="col-md-6">
+            <a href="/search" class="btn btn-warning w-100 p-3">
+                🔍 Search Student
+            </a>
+        </div>
 
-                <h2>{{ user_count }}</h2>
-
-            </div>
-
+        <div class="col-md-6">
+            <a href="/export" class="btn btn-info w-100 p-3">
+                📥 Export CSV
+            </a>
         </div>
 
     </div>
 
-</div>
+    <div class="text-center mt-4">
 
-<div class="list-group">
+        <a href="/logout" class="btn btn-danger px-5">
+            🚪 Logout
+        </a>
 
-<a href="/students" class="list-group-item">
-View Students
-</a>
-
-<a href="/export" class="btn btn-success">
-
-📥 Export Students CSV
-
-</a>
-
-<a href="/add" class="list-group-item">
-Add Student
-</a>
-
-
-<a href="/search" class="list-group-item">
-Search Student
-</a>
-
-<a href="/logout" class="list-group-item">
-Logout
-</a>
+    </div>
 
 </div>
-
 {% endblock %}
