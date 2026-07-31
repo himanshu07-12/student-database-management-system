@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, session
+from flask import Flask, render_template, request, redirect, session, flash
 from auth import login
 from utils import login_required
 from students import view_students,insert_student, update_student, delete_student, search_student, get_student
@@ -24,12 +24,15 @@ def login_page():
 
         if success:
            session["user"] = username
+           flash("Login Successful!", "success")
            return redirect("/dashboard")
 
         else:
-            return "Invalid Credentials"
+            flash("Invalid Login ID, Username or Password!", "danger")
+            return redirect("/login")
 
     return render_template("login.html")
+    
 
 
 @app.route("/signup")
@@ -75,9 +78,11 @@ def add_page():
         )
 
         if success:
+            flash(message, "success")
             return redirect("/students")
-
-        return message
+        else:
+            flash(message, "danger")
+            return redirect("/add")
 
     return render_template("add_student.html")
 
@@ -102,9 +107,11 @@ def update_page(adm):
         )
 
         if success:
+            flash(message, "success")
             return redirect("/students")
-
-        return message
+        else:
+            flash(message, "danger")
+            return redirect(f"/update/{adm}")
 
     student=get_student(adm)
 
@@ -119,6 +126,11 @@ def update_page(adm):
 def delete_page(adm):
 
     success, message = delete_student(adm)
+
+    if success:
+        flash(message, "success")
+    else:
+        flash(message, "danger")
 
     return redirect("/students")
 
