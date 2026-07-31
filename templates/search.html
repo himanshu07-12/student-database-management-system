@@ -15,6 +15,20 @@ Search
 
 </form>
 
+{% if students %}
+
+    <!-- table here -->
+
+{% else %}
+
+<div class="alert alert-warning">
+
+    No student found.
+
+</div>
+
+{% endif %}
+
 {% extends "base.html" %}
 
 {% block content %}
