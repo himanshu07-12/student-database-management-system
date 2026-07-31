@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, session, flash
 from auth import login
 from utils import login_required
-from students import view_students,insert_student, update_student, delete_student, search_student, get_student
+from students import view_students,insert_student, update_student, delete_student, search_student, get_student, get_dashboard_stats
 
 app = Flask(__name__)
 app.secret_key = "student_database_secret_key"
@@ -42,7 +42,12 @@ def signup():
 @app.route("/dashboard")
 @login_required
 def dashboard():
-    return render_template("dashboard.html")
+    student_count, user_count = get_dashboard_stats()
+    return render_template(
+    "dashboard.html",
+    student_count=student_count,
+    user_count=user_count
+)
 
 @app.route("/students")
 @login_required
