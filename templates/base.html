@@ -19,6 +19,8 @@
 
 <body>
 
+    {% set current = request.path %}
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
     <div class="container">
@@ -45,8 +47,8 @@
 
                 <li class="nav-item">
 
-                    <a class="nav-link"
-                       href="/dashboard">
+                   <a class="nav-link {% if current == '/dashboard' %}active fw-bold{% endif %}"
+                    href="/dashboard">  
 
                        <i class="bi bi-speedometer2"></i> Dashboard
 
@@ -56,8 +58,8 @@
 
                 <li class="nav-item">
 
-                    <a class="nav-link"
-                       href="/students">
+                    <a class="nav-link {% if current == '/students' %}active fw-bold{% endif %}"
+                    href="/students">
 
                        <i class="bi bi-people-fill"></i> Students
 
@@ -67,9 +69,8 @@
 
                 <li class="nav-item">
 
-                    <a class="nav-link"
-                       href="/add">
-
+                    <a class="nav-link {% if current == '/add' %}active fw-bold{% endif %}"
+                    href="/add">
                        <i class="bi bi-person-plus-fill"></i> Add Student
 
                     </a>
@@ -78,8 +79,8 @@
 
                 <li class="nav-item">
 
-                    <a class="nav-link"
-                       href="/search">
+                    <a class="nav-link {% if current == '/search' %}active fw-bold{% endif %}"
+                    href="/search">
 
                         <i class="bi bi-search"></i> Search
 
