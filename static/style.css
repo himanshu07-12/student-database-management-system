@@ -1,5 +1,9 @@
+body{
+    background-color:#68bfe1
+}
 .dashboard-card {
     transition: 0.3s;
+    
 }
 
 .dashboard-card:hover {
