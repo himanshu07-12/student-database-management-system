@@ -25,3 +25,95 @@ body{
     padding:12px 0;
 
 }
+
+.hero-section{
+
+    background:linear-gradient(
+        135deg,
+        #f8fafc,
+        #eef5ff
+    );
+
+}
+
+.dashboard-preview{
+
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+.preview-header{
+
+    background:#1f2937;
+
+    padding:15px;
+
+}
+
+.preview-header span{
+
+    display:inline-block;
+
+    width:12px;
+
+    height:12px;
+
+    border-radius:50%;
+
+    margin-right:8px;
+
+    background:#d1d5db;
+
+}
+
+.preview-body{
+
+    padding:30px;
+
+}
+
+.stat-card{
+
+    background:#f8fafc;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    padding:20px;
+
+    transition:.3s;
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.recent-card{
+
+    background:#f8fafc;
+
+    border-radius:15px;
+
+    padding:20px;
+
+}
+
+.recent-card ul{
+
+    padding-left:20px;
+
+}
+
+.btn-primary{
+
+    border-radius:50px;
+
+}
