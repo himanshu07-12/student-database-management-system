@@ -325,3 +325,176 @@ body{
     box-shadow:0 10px 25px rgba(37,99,235,.35);
 
 }
+
+/* ===========================
+   FOOTER
+=========================== */
+
+.footer-section{
+
+    background:#111827;
+    color:#e5e7eb;
+    padding:70px 0 30px;
+    margin-top:80px;
+
+}
+
+.footer-logo{
+
+    color:#ffffff;
+    font-weight:700;
+    margin-bottom:20px;
+
+}
+
+.footer-logo i{
+
+    color:#3b82f6;
+    margin-right:10px;
+
+}
+
+.footer-text{
+
+    color:#9ca3af;
+    line-height:1.8;
+
+}
+
+.footer-title{
+
+    color:#ffffff;
+    margin-bottom:20px;
+    font-weight:600;
+
+}
+
+.footer-links{
+
+    list-style:none;
+    padding:0;
+
+}
+
+.footer-links li{
+
+    margin-bottom:12px;
+
+}
+
+.footer-links a{
+
+    color:#9ca3af;
+    text-decoration:none;
+    transition:.3s;
+
+}
+
+.footer-links a:hover{
+
+    color:#60a5fa;
+    padding-left:6px;
+
+}
+
+.social-icons{
+
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+
+}
+
+.social-icons a{
+
+    width:48px;
+    height:48px;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:#1f2937;
+
+    color:white;
+
+    font-size:22px;
+
+    text-decoration:none;
+
+    transition:.35s;
+
+}
+
+.social-icons a:hover{
+
+    background:#2563eb;
+
+    transform:translateY(-6px);
+
+    box-shadow:0 12px 25px rgba(37,99,235,.35);
+
+}
+.github-qr{
+
+    text-align:center;
+
+}
+
+.github-qr img{
+
+    width:130px;
+
+    border-radius:12px;
+
+    background:white;
+
+    padding:8px;
+
+    transition:.3s;
+
+}
+
+.github-qr img:hover{
+
+    transform:scale(1.05);
+
+}
+
+.github-qr p{
+
+    color:#9ca3af;
+
+    font-size:.9rem;
+
+}
+.footer-section hr{
+
+    border-color:#374151;
+
+    margin:50px 0;
+
+}
+.project-info{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:20px;
+
+}
+
+.project-info span{
+
+    background:#1f2937;
+
+    padding:10px 16px;
+
+    border-radius:30px;
+
+    font-size:.9rem;
+
+}
