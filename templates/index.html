@@ -2,24 +2,122 @@
 
 {% block content %}
 
-<div class="text-center">
+<section class="hero-section">
 
-<h1>Welcome</h1>
+    <div class="container">
 
-<p>
+        <div class="row align-items-center min-vh-100">
 
-Student Database Management System
+            <!-- Left Side -->
 
-</p>
+            <div class="col-lg-6">
 
-<a
-class="btn btn-primary"
-href="/login">
+                <span class="badge bg-primary mb-3 px-3 py-2">
+                    Student Database Management System
+                </span>
 
-Login
+                <h1 class="display-4 fw-bold text-dark mb-4">
+                    Manage Student Records
+                    <span class="text-primary">Effortlessly</span>
+                </h1>
 
-</a>
+                <p class="lead text-muted mb-4">
 
-</div>
+                    A modern web application built using Flask,
+                    SQLite and Bootstrap for efficiently managing
+                    student records with secure authentication,
+                    quick search and CSV export.
 
+                </p>
+
+                <a href="/login"
+                   class="btn btn-primary btn-lg px-4 rounded-pill">
+
+                    Login
+
+                </a>
+
+            </div>
+
+            <!-- Right Side -->
+
+            <div class="col-lg-6">
+
+                <div class="dashboard-preview shadow-lg">
+
+                    <div class="preview-header">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+                    <div class="preview-body">
+
+                        <h5 class="mb-4">
+
+                            Dashboard Overview
+
+                        </h5>
+
+                        <div class="row g-3">
+
+                            <div class="col-6">
+
+                                <div class="stat-card">
+
+                                    <h3>250</h3>
+
+                                    <p>Total Students</p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-6">
+
+                                <div class="stat-card">
+
+                                    <h3>8</h3>
+
+                                    <p>Departments</p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-12">
+
+                                <div class="recent-card">
+
+                                    <h6>Recent Activity</h6>
+
+                                    <ul>
+
+                                        <li>✔ Added Student</li>
+
+                                        <li>✔ Updated Record</li>
+
+                                        <li>✔ Exported CSV</li>
+
+                                    </ul>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 {% endblock %}
