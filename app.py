@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, session, flash
 from auth import login
 import csv
+import sqlite3
 from io import StringIO
 from flask import make_response
 from utils import login_required
@@ -11,8 +12,14 @@ app.secret_key = "student_database_secret_key"
 
 @app.route("/")
 def home():
-    return render_template("index.html")
 
+    student_count, user_count = get_dashboard_stats()
+
+    return render_template(
+        "index.html",
+        total_students=student_count,
+        total_admins=user_count
+    )
 
 @app.route("/login", methods=["GET", "POST"])
 def login_page():
