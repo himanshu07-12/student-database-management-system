@@ -117,3 +117,75 @@ body{
     border-radius:50px;
 
 }
+
+.features-section{
+
+    background:#ffffff;
+
+}
+
+.feature-card{
+
+    background:#fff;
+
+    padding:35px 25px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    transition:.35s;
+
+    border:1px solid #e5e7eb;
+
+    height:100%;
+
+}
+
+.feature-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.08);
+
+}
+
+.feature-icon{
+
+    width:70px;
+
+    height:70px;
+
+    margin:auto;
+
+    margin-bottom:20px;
+
+    border-radius:50%;
+
+    background:#2563eb;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:28px;
+
+}
+
+.feature-card h5{
+
+    font-weight:600;
+
+    margin-bottom:15px;
+
+}
+
+.feature-card p{
+
+    color:#6b7280;
+
+}
