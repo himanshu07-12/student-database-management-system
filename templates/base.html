@@ -26,7 +26,7 @@
 
     <div class="container">
 
-        <a class="navbar-brand fw-bold" href="/dashboard">
+        <a class="navbar-brand fw-bold" href="/">
 
             🎓 Student Database
 
@@ -44,74 +44,100 @@
         <div class="collapse navbar-collapse"
              id="navbarNav">
 
-            <ul class="navbar-nav ms-auto">
+  <ul class="navbar-nav ms-auto">
 
-                <li class="nav-item">
+{% if session.get("user") %}
 
-                   <a class="nav-link {% if current == '/dashboard' %}active fw-bold{% endif %}"
-                    href="/dashboard">  
+    <li class="nav-item">
+        <a class="nav-link {% if current == '/dashboard' %}active fw-bold{% endif %}" href="/dashboard">
+            <i class="bi bi-speedometer2"></i> Dashboard
+        </a>
+    </li>
 
-                       <i class="bi bi-speedometer2"></i> Dashboard
+    <li class="nav-item dropdown">
 
-                    </a>
+        <a class="nav-link dropdown-toggle"
+           href="#"
+           data-bs-toggle="dropdown">
 
-                </li>
+            <i class="bi bi-people-fill"></i> Students
 
-                <li class="nav-item">
+        </a>
 
-                    <a class="nav-link {% if current == '/students' %}active fw-bold{% endif %}"
-                    href="/students">
+        <ul class="dropdown-menu">
 
-                       <i class="bi bi-people-fill"></i> Students
+            <li>
+                <a class="dropdown-item" href="/students">
+                    View Students
+                </a>
+            </li>
 
-                    </a>
+            <li>
+                <a class="dropdown-item" href="/add">
+                    Add Student
+                </a>
+            </li>
 
-                </li>
+            <li>
+                <a class="dropdown-item" href="/search">
+                    Search
+                </a>
+            </li>
 
-                <li class="nav-item">
+            <li>
+                <a class="dropdown-item" href="/export">
+                    Export CSV
+                </a>
+            </li>
 
-                    <a class="nav-link {% if current == '/add' %}active fw-bold{% endif %}"
-                    href="/add">
-                       <i class="bi bi-person-plus-fill"></i> Add Student
+        </ul>
 
-                    </a>
+    </li>
 
-                </li>
+    <li class="nav-item">
 
-                <li class="nav-item">
+        <a class="nav-link text-warning" href="/logout">
 
-                    <a class="nav-link {% if current == '/search' %}active fw-bold{% endif %}"
-                    href="/search">
+            <i class="bi bi-box-arrow-right"></i>
 
-                        <i class="bi bi-search"></i> Search
+            Logout
 
-                    </a>
+        </a>
 
-                </li>
+    </li>
 
-                <li class="nav-item">
+{% else %}
 
-                    <a class="nav-link"
-                       href="/export">
+    <li class="nav-item">
 
-                        <i class="bi bi-download"></i> Export CSV
+        <a class="nav-link active" href="/">
+            Home
+        </a>
 
-                    </a>
+    </li>
 
-                </li>
+    <li class="nav-item">
 
-                <li class="nav-item">
+        <a class="nav-link" href="#about">
+            About
+        </a>
 
-                    <a class="nav-link text-warning"
-                       href="/logout">
+    </li>
 
-                       <i class="bi bi-box-arrow-right"></i> Logout
+    <li class="nav-item">
 
-                    </a>
+        <a class="btn btn-primary ms-3 px-4 rounded-pill"
+           href="/login">
 
-                </li>
+            Login
 
-            </ul>
+        </a>
+
+    </li>
+
+{% endif %}
+
+</ul>
 
         </div>
 
