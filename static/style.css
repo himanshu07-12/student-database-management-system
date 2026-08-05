@@ -480,10 +480,59 @@ body{
 .project-info{
 
     display:flex;
-
     flex-wrap:wrap;
+    gap:12px;
 
-    gap:20px;
+}
+
+.info-badge{
+
+    display:inline-flex;
+    align-items:center;
+
+    padding:10px 18px;
+
+    border-radius:50px;
+
+    font-size:.9rem;
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+.info-badge:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.version{
+
+    background:#1e3a8a;
+    color:#dbeafe;
+
+}
+
+.active{
+
+    background:#14532d;
+    color:#dcfce7;
+
+}
+
+.license{
+
+    background:#3f3f46;
+    color:#f4f4f5;
+
+}
+
+.updated{
+
+    background:#7c2d12;
+    color:#ffedd5;
 
 }
 
@@ -496,5 +545,156 @@ body{
     border-radius:30px;
 
     font-size:.9rem;
+
+}
+.back-top{
+
+    text-decoration:none;
+
+    color:#60a5fa;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.back-top:hover{
+
+    color:white;
+
+}
+.copyright{
+
+    color:#9ca3af;
+
+    font-size:.9rem;
+
+}
+@media(max-width:768px){
+
+.footer-section{
+
+    text-align:center;
+
+}
+
+.social-icons{
+
+    justify-content:center;
+
+}
+
+.project-info{
+
+    justify-content:center;
+
+}
+
+.footer-links{
+
+    margin-bottom:25px;
+
+}
+
+}
+.github-card{
+
+    margin-top:35px;
+
+    background:#1f2937;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    text-align:center;
+
+}
+
+.github-card h6{
+
+    color:white;
+
+    margin-bottom:20px;
+
+}
+
+.github-card h6 i{
+
+    color:#60a5fa;
+
+    margin-right:8px;
+
+}
+
+.github-card img{
+
+    width:140px;
+
+    background:white;
+
+    padding:8px;
+
+    border-radius:12px;
+
+    transition:.3s;
+
+}
+
+.github-card img:hover{
+
+    transform:scale(1.05);
+
+}
+
+.github-card p{
+
+    margin-top:15px;
+
+    color:#9ca3af;
+
+}
+.footer-bottom{
+
+    margin-top:40px;
+
+    padding-top:25px;
+
+    border-top:1px solid #374151;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+}
+
+.footer-bottom p{
+
+    margin:0;
+
+    color:#9ca3af;
+
+}
+
+.footer-bottom a{
+
+    color:#60a5fa;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+.footer-bottom a:hover{
+
+    color:white;
 
 }
