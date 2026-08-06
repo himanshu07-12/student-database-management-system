@@ -751,3 +751,85 @@ body{
     transform:translateY(-3px);
 
 }
+/* ===========================
+   LOGIN PAGE
+=========================== */
+
+.login-page{
+
+    min-height:100vh;
+
+    background:#173e65;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px 20px;
+
+}
+.login-card{
+
+    width:100%;
+    max-width:460px;
+
+    background:#ffffff;
+
+    border:1px solid #e5e7eb;
+
+    border-radius:18px;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.08);
+
+    overflow:hidden;
+
+    padding:45px;
+
+}
+.login-accent{
+
+    height:5px;
+
+    background:#2563eb;
+
+    margin:-45px -45px 35px -45px;
+
+}
+.login-logo{
+
+    font-size:55px;
+
+    color:#2563eb;
+
+}
+.login-card h2{
+
+    font-weight:700;
+
+    color:#111827;
+
+}
+
+.login-card h5{
+
+    font-weight:600;
+
+}
+
+.login-card p{
+
+    color:#6b7280;
+
+}
+.form-label{
+
+    font-weight:600;
+
+    color:#374151;
+
+    margin-bottom:8px;
+
+}
