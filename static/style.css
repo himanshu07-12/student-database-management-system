@@ -870,25 +870,29 @@ body{
 
     background:#ffffff;
 
-    border:none;
-
     border-radius:18px;
 
-    padding:28px;
+    padding:30px;
 
     height:100%;
 
-    box-shadow:0 8px 24px rgba(15,23,42,.08);
+    display:flex;
 
-    transition:.3s;
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    box-shadow:0 10px 25px rgba(15,23,42,.08);
+
+    transition:all .3s ease;
 
 }
 
 .dashboard-card:hover{
 
-    transform:translateY(-6px);
+    transform:translateY(-8px);
 
-    box-shadow:0 18px 35px rgba(37,99,235,.15);
+    box-shadow:0 20px 40px rgba(37,99,235,.15);
 
 }
 .card-icon{
@@ -1016,5 +1020,64 @@ body{
 .recent-table tbody tr{
 
     transition:.2s;
+
+}
+.recent-table tbody tr:nth-child(even){
+
+    background:#f8fafc;
+
+}
+.recent-table{
+
+    overflow:hidden;
+
+    border-radius:12px;
+
+}
+.recent-table .btn{
+
+    border-radius:8px;
+
+    font-size:.85rem;
+
+}
+
+.dashboard-btn{
+
+    width:100%;
+
+    border-radius:10px;
+
+    font-weight:600;
+
+    padding:10px 0;
+
+    transition:.3s;
+
+}
+.dashboard-divider{
+
+    margin:30px 0;
+
+    opacity:.15;
+
+}
+.recent-section-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.recent-section-header h3{
+
+    font-weight:700;
+
+    margin:0;
 
 }
