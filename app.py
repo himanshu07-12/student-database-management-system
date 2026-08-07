@@ -6,7 +6,7 @@ from io import StringIO
 from flask import make_response
 from utils import login_required
 from students import view_students,insert_student, update_student, delete_student, search_student, get_student, get_dashboard_stats
-
+from students import  get_recent_students
 app = Flask(__name__)
 app.secret_key = "student_database_secret_key"
 
@@ -48,10 +48,12 @@ def login_page():
 @login_required
 def dashboard():
     student_count, user_count = get_dashboard_stats()
+    recent_students = get_recent_students()
     return render_template(
     "dashboard.html",
     student_count=student_count,
-    user_count=user_count
+    user_count=user_count,
+    recent_students=recent_students
 )
 
 @app.route("/students")

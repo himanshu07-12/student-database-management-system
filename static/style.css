@@ -981,3 +981,40 @@ body{
     );
 
 }
+.recent-section{
+
+    background:#fff;
+
+    padding:30px;
+
+    border-radius:18px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+.recent-section h3{
+
+    font-weight:700;
+
+    color:#111827;
+
+}
+.recent-table thead{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+.recent-table thead th{
+
+    border:none;
+
+    padding:15px;
+
+}
+.recent-table tbody tr{
+
+    transition:.2s;
+
+}

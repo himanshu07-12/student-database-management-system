@@ -110,5 +110,90 @@
 
 </div>
 
+<div class="recent-section mt-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+
+        <h3>Recent Students</h3>
+
+        <a href="/students" class="btn btn-primary">
+
+            View All
+
+        </a>
+
+    </div>
+
+    <div class="table-responsive">
+
+        <table class="table recent-table align-middle">
+
+            <thead>
+
+                <tr>
+
+                    <th>Admission No</th>
+
+                    <th>Name</th>
+
+                    <th>Roll</th>
+
+                    <th>Mobile</th>
+
+                    <th>Action</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+            {% for student in recent_students %}
+
+                <tr>
+
+                    <td>{{ student.admno }}</td>
+
+                    <td>
+
+                        {{ student.fname }}
+                        {{ student.lname }}
+
+                    </td>
+
+                    <td>{{ student.roll }}</td>
+
+                    <td>{{ student.mobno }}</td>
+
+                    <td>
+
+                        <a href="/update/{{ student.admno }}"
+                           class="btn btn-sm btn-warning">
+
+                            Edit
+
+                        </a>
+
+                        <a href="/delete/{{ student.admno }}"
+                           class="btn btn-sm btn-danger">
+
+                            Delete
+
+                        </a>
+
+                    </td>
+
+                </tr>
+
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
 </div>
 {% endblock %}

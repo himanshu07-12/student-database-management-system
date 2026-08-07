@@ -223,3 +223,29 @@ def get_dashboard_stats():
     conn.close()
 
     return student_count, user_count
+
+def get_recent_students():
+
+    mydb = get_connection()
+    mycursor = mydb.cursor(dictionary=True)
+
+    query = """
+    SELECT
+        ADMNO AS admno,
+        FNAME AS fname,
+        LNAME AS lname,
+        ROLL AS roll,
+        MOBNO AS mobno
+    FROM student
+    ORDER BY ADMNO DESC
+    LIMIT 5
+    """
+
+    mycursor.execute(query)
+
+    students = mycursor.fetchall()
+
+    mycursor.close()
+    mydb.close()
+
+    return students
