@@ -833,3 +833,137 @@ body{
     margin-bottom:8px;
 
 }
+/* ===========================
+        DASHBOARD
+=========================== */
+
+.dashboard-header{
+
+    margin:35px 0 40px;
+
+}
+
+.dashboard-header h2{
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    color:#ffffff;
+
+}
+
+.dashboard-header span{
+
+    color:#60a5fa;
+
+}
+
+.dashboard-header p{
+
+    color:#cbd5e1;
+
+    margin-top:8px;
+
+    font-size:1.05rem;
+
+}
+.dashboard-card{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    text-align:center;
+
+    border:1px solid #e5e7eb;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.05);
+
+    transition:.3s;
+
+    height:100%;
+
+}
+
+.dashboard-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 18px 40px rgba(0,0,0,.08);
+
+}
+.card-icon{
+
+    font-size:42px;
+
+    margin-bottom:20px;
+
+}
+.dashboard-card h1{
+
+    font-size:42px;
+
+    font-weight:700;
+
+    margin-bottom:8px;
+
+}
+.dashboard-card h5{
+
+    font-weight:600;
+
+}
+.dashboard-card p{
+
+    color:#6b7280;
+
+    margin-bottom:20px;
+
+}
+.students-card{
+
+    border-top:5px solid #2563eb;
+
+}
+
+.students-card .card-icon{
+
+    color:#2563eb;
+
+}
+.admin-card{
+
+    border-top:5px solid #16a34a;
+
+}
+
+.admin-card .card-icon{
+
+    color:#16a34a;
+
+}
+.add-card{
+
+    border-top:5px solid #f59e0b;
+
+}
+
+.add-card .card-icon{
+
+    color:#f59e0b;
+
+}
+.search-card{
+
+    border-top:5px solid #7c3aed;
+
+}
+
+.search-card .card-icon{
+
+    color:#7c3aed;
+
+}
