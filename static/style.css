@@ -868,21 +868,19 @@ body{
 }
 .dashboard-card{
 
-    background:#fff;
+    background:#ffffff;
+
+    border:none;
 
     border-radius:18px;
 
-    padding:30px;
-
-    text-align:center;
-
-    border:1px solid #e5e7eb;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.05);
-
-    transition:.3s;
+    padding:28px;
 
     height:100%;
+
+    box-shadow:0 8px 24px rgba(15,23,42,.08);
+
+    transition:.3s;
 
 }
 
@@ -890,7 +888,7 @@ body{
 
     transform:translateY(-6px);
 
-    box-shadow:0 18px 40px rgba(0,0,0,.08);
+    box-shadow:0 18px 35px rgba(37,99,235,.15);
 
 }
 .card-icon{
