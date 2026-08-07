@@ -969,10 +969,15 @@ body{
 
 .dashboard-content{
 
-    min-height:calc(100vh - 70px);
+    min-height: calc(100vh - 70px);
 
-    background:#c2d0de;
+    padding: 40px;
 
-    padding:40px;
+    background: linear-gradient(
+        135deg,
+        #d8e2ec 0%,
+        #c2d0de 45%,
+        #b5c6d8 100%
+    );
 
 }
