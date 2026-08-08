@@ -1081,3 +1081,60 @@ body{
     margin:0;
 
 }
+/* ===========================
+   STUDENTS PAGE
+=========================== */
+
+.students-page-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:30px;
+
+    margin-bottom:30px;
+
+}
+
+.students-page-header h2{
+
+    margin:0;
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    color:#111827;
+
+}
+
+.students-page-header p{
+
+    margin:8px 0 0;
+
+    color:#64748b;
+
+}
+
+.students-page-actions{
+
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+}
+
+.students-page-actions .btn{
+
+    border-radius:10px;
+
+    padding:10px 16px;
+
+    font-weight:500;
+
+}
