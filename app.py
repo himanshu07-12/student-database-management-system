@@ -156,22 +156,6 @@ def logout():
     session.clear()
     return redirect("/")
 
-@app.route("/search", methods=["GET", "POST"])
-@login_required
-def search_page():
-
-    students = []
-
-    if request.method == "POST":
-
-        keyword = request.form["keyword"]
-
-        students = search_student(keyword)
-
-    return render_template(
-        "search.html",
-        students=students
-    )
 
 @app.route("/export")
 @login_required
