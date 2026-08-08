@@ -1426,3 +1426,71 @@ body{
     font-weight:600;
 
 }
+/* ===========================
+   STUDENT SEARCH
+=========================== */
+
+.student-search-bar{
+
+    background:#ffffff;
+
+    padding:18px;
+
+    border-radius:14px;
+
+    margin-bottom:25px;
+
+    box-shadow:0 6px 18px rgba(15,23,42,.06);
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+.student-search-form{
+
+    flex:1;
+
+}
+.student-search-form .input-group-text{
+
+    background:#ffffff;
+
+    border-right:none;
+
+    color:#64748b;
+
+}
+.student-search-form .form-control{
+
+    border-left:none;
+
+    padding:11px 12px;
+
+}
+.student-search-form .form-control:focus{
+
+    border-color:#2563eb;
+
+    box-shadow:none;
+
+}
+.clear-search{
+
+    color:#dc2626;
+
+    text-decoration:none;
+
+    font-weight:500;
+
+    white-space:nowrap;
+
+}
+
+.clear-search:hover{
+
+    text-decoration:underline;
+
+}
