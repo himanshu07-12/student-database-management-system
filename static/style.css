@@ -1380,3 +1380,49 @@ body{
     color:#64748b;
 
 }
+.student-form-card .form-label{
+
+    font-weight:600;
+
+    color:#374151;
+
+}
+
+.student-form-card .form-control{
+
+    padding:12px 14px;
+
+    border:1px solid #d1d5db;
+
+    border-radius:10px;
+
+}
+
+.student-form-card .form-control:focus{
+
+    border-color:#2563eb;
+
+    box-shadow:0 0 0 .2rem rgba(37,99,235,.12);
+
+}
+.form-actions{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:12px;
+
+    padding-top:10px;
+
+}
+
+.form-actions .btn{
+
+    padding:10px 20px;
+
+    border-radius:10px;
+
+    font-weight:600;
+
+}
