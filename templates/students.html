@@ -37,64 +37,110 @@
 
 </div>
 
-<table class="table table-hover table-striped shadow-lg">
+<div class="students-table-card">
 
-<thead class="table-dark">
+    <div class="table-responsive">
 
-<tr>
+        <table class="table students-table align-middle mb-0">
 
-<th>Admission No</th>
-<th>First Name</th>
-<th>Last Name</th>
-<th>Roll No</th>
-<th>Mobile</th>
-<th>Actions</th>
+            <thead>
 
-</tr>
+                <tr>
 
-</thead>
+                    <th>Admission No</th>
+                    <th>Student Name</th>
+                    <th>Roll No</th>
+                    <th>Mobile</th>
+                    <th class="text-center">Actions</th>
 
-<tbody>
+                </tr>
 
-{% for student in students %}
+            </thead>
 
-<tr>
+            <tbody>
 
-<td>{{ student.admno }}</td>
+            {% for student in students %}
 
-<td>{{ student.fname }}</td>
+                <tr>
 
-<td>{{ student.lname }}</td>
+                    <td>
+                        <span class="admno-badge">
+                            {{ student.admno }}
+                        </span>
+                    </td>
 
-<td>{{ student.roll }}</td>
+                    <td>
 
-<td>{{ student.mobno }}</td>
+                        <div class="student-name">
 
-<td>
+                            <div class="student-avatar">
 
-<a href="/update/{{ student.admno }}"
-class="btn btn-warning btn-sm">
+                                {{ student.fname[0] | upper }}
 
-✏️ Edit
+                            </div>
 
-</a>
+                            <div>
 
-<a href="/delete/{{ student.admno }}"
-class="btn btn-danger btn-sm"
-onclick="return confirm('Are you sure you want to delete this student?')">
+                                <strong>
+                                    {{ student.fname }}
+                                    {{ student.lname }}
+                                </strong>
 
-🗑 Delete
+                            </div>
 
-</a>
+                        </div>
 
-</td>
+                    </td>
 
-</tr>
+                    <td>
 
-{% endfor %}
+                        <span class="roll-badge">
+                            {{ student.roll }}
+                        </span>
 
-</tbody>
+                    </td>
 
+                    <td>
+
+                        <i class="bi bi-telephone me-2"></i>
+
+                        {{ student.mobno }}
+
+                    </td>
+
+                    <td class="text-center">
+
+                        <a
+                            href="/update/{{ student.admno }}"
+                            class="btn btn-sm btn-outline-warning me-1">
+
+                            <i class="bi bi-pencil-square"></i>
+                            Edit
+
+                        </a>
+
+                        <a
+                            href="/delete/{{ student.admno }}"
+                            class="btn btn-sm btn-outline-danger">
+
+                            <i class="bi bi-trash"></i>
+                            Delete
+
+                        </a>
+
+                    </td>
+
+                </tr>
+
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
 </table>
 
 {% endblock %}
