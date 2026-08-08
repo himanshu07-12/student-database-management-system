@@ -1275,3 +1275,38 @@ body{
     padding:7px 11px;
 
 }
+/* ===========================
+   ADD STUDENT PAGE
+=========================== */
+
+.student-form-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+}
+
+.student-form-header h2{
+
+    margin:0;
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    color:#111827;
+
+}
+
+.student-form-header p{
+
+    margin:8px 0 0;
+
+    color:#64748b;
+
+}
