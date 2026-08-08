@@ -60,14 +60,18 @@ def dashboard():
 @login_required
 def students_page():
 
-    students = view_students()
-    print(students)
+    keyword = request.args.get("keyword", "").strip()
+
+    if keyword:
+        students = search_student(keyword)
+    else:
+        students = view_students()
 
     return render_template(
         "students.html",
-        students=students
+        students=students,
+        keyword=keyword
     )
-
 
 @app.route("/add", methods=["GET", "POST"])
 @login_required
