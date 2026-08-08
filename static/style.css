@@ -1310,3 +1310,73 @@ body{
     color:#64748b;
 
 }
+.student-form-card{
+
+    max-width:850px;
+
+    margin:0 auto;
+
+    background:#ffffff;
+
+    border-radius:18px;
+
+    padding:35px;
+
+    box-shadow:0 10px 30px rgba(15,23,42,.08);
+
+}
+.form-section-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding-bottom:25px;
+
+    margin-bottom:30px;
+
+    border-bottom:1px solid #e5e7eb;
+
+}
+
+.form-section-title > i{
+
+    width:48px;
+
+    height:48px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:12px;
+
+    background:#dbeafe;
+
+    color:#2563eb;
+
+    font-size:22px;
+
+}
+
+.form-section-title h4{
+
+    margin:0;
+
+    font-weight:700;
+
+    color:#111827;
+
+}
+
+.form-section-title p{
+
+    margin:4px 0 0;
+
+    color:#64748b;
+
+}
