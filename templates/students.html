@@ -67,27 +67,48 @@
 
     </div>
 
-  <div class="students-page-actions">
+    <div class="students-page-actions">
 
-    <a href="/add" class="btn btn-primary">
+        <a href="/add" class="btn btn-primary">
 
-        <i class="bi bi-person-plus-fill"></i>
+            <i class="bi bi-person-plus-fill"></i>
 
-        Add Student
+            Add Student
 
-    </a>
+        </a>
 
-    <a href="/export" class="btn btn-outline-secondary">
+        <a href="/export" class="btn btn-outline-secondary">
 
-        <i class="bi bi-download"></i>
+            <i class="bi bi-download"></i>
 
-        Export CSV
+            Export CSV
 
-    </a>
+        </a>
+
+    </div>
 
 </div>
+{% if keyword and not students %}
 
-</div>
+    <div class="empty-search">
+
+        <i class="bi bi-search"></i>
+
+        <h4>No Students Found</h4>
+
+        <p>
+            No student matches "{{ keyword }}".
+        </p>
+
+        <a href="/students" class="btn btn-primary">
+
+            View All Students
+
+        </a>
+
+    </div>
+
+{% elif students %}
 
 <div class="students-table-card">
 
@@ -191,6 +212,8 @@
         </table>
 
     </div>
+
+{% endif %}
 
 </div>
 </table>
