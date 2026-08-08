@@ -4,6 +4,57 @@
 
 <div class="students-page-header">
 
+    <div class="student-search-bar">
+
+        <form
+            action="/students"
+            method="GET"
+            class="student-search-form">
+
+            <div class="input-group">
+
+                <span class="input-group-text">
+
+                    <i class="bi bi-search"></i>
+
+                </span>
+
+                <input
+                    type="text"
+                    name="keyword"
+                    class="form-control"
+                    value="{{ keyword }}"
+                    placeholder="Search by Admission Number or Roll Number">
+
+                <button
+                    type="submit"
+                    class="btn btn-primary">
+
+                    Search
+
+                </button>
+
+            </div>
+
+        </form>
+
+
+        {% if keyword %}
+
+            <a
+                href="/students"
+                class="clear-search">
+
+                <i class="bi bi-x-circle"></i>
+
+                Clear Search
+
+            </a>
+
+        {% endif %}
+
+    </div>
+
     <div>
 
         <h2>
