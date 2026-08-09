@@ -1544,3 +1544,39 @@ body{
     font-weight:500;
 
 }
+/* ===========================
+   DASHBOARD NAVBAR
+=========================== */
+
+.user-menu{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+}
+.navbar .dropdown-menu{
+
+    border:none;
+
+    border-radius:12px;
+
+    padding:8px;
+
+    box-shadow:0 12px 30px rgba(15,23,42,.15);
+
+}
+.navbar .dropdown-item{
+
+    border-radius:8px;
+
+    padding:9px 12px;
+
+}
+.navbar .dropdown-item:hover{
+
+    background:#f1f5f9;
+
+}
