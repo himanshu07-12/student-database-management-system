@@ -2,58 +2,170 @@
 
 {% block content %}
 
-<h2 class="mb-4">Update Student</h2>
+<div class="student-form-header">
 
-<form method="POST">
+    <div>
 
-    <div class="mb-3">
-        <label>Admission Number</label>
-        <input
-        class="form-control"
-        value="{{ student.admno }}"
-        readonly>
+        <h2>Edit Student</h2>
+
+        <p>
+            Update the student's information below.
+        </p>
+
     </div>
 
-    <div class="mb-3">
-        <label>First Name</label>
-        <input class="form-control"
-               type="text"
-               name="fname"
-               value="{{ student.fname }}"
-               required>
+    <a href="/students" class="btn btn-outline-secondary">
+
+        <i class="bi bi-arrow-left"></i>
+
+        Back to Students
+
+    </a>
+
+</div>
+
+
+<div class="student-form-card">
+
+    <div class="form-section-title">
+
+        <i class="bi bi-pencil-square"></i>
+
+        <div>
+
+            <h4>Student Information</h4>
+
+            <p>
+                Modify the details and save your changes.
+            </p>
+
+        </div>
+
     </div>
 
-    <div class="mb-3">
-        <label>Last Name</label>
-        <input class="form-control"
-               type="text"
-               name="lname"
-               value="{{ student.lname }}"
-               required>
-    </div>
 
-    <div class="mb-3">
-        <label>Roll Number</label>
-        <input class="form-control"
-               type="number"
-               name="roll"
-               value="{{ student.roll }}"
-               required>
-    </div>
+    <form method="POST">
 
-    <div class="mb-3">
-        <label>Mobile Number</label>
-        <input class="form-control"
-               type="number"
-               name="mobno"
-               value="{{ student.mobno }}"
-               required>
-    </div>
+        <!-- Admission Number -->
 
-    <button class="btn btn-success">
-        Update Student
-    </button>
+        <div class="mb-4">
 
-</form>
+            <label class="form-label">
+                Admission Number
+            </label>
+
+            <input
+                type="text"
+                class="form-control"
+                value="{{ student.admno }}"
+                disabled>
+
+        </div>
+
+
+        <!-- First + Last Name -->
+
+        <div class="row">
+
+            <div class="col-md-6 mb-4">
+
+                <label class="form-label">
+                    First Name
+                </label>
+
+                <input
+                    type="text"
+                    name="fname"
+                    class="form-control"
+                    value="{{ student.fname }}"
+                    required>
+
+            </div>
+
+
+            <div class="col-md-6 mb-4">
+
+                <label class="form-label">
+                    Last Name
+                </label>
+
+                <input
+                    type="text"
+                    name="lname"
+                    class="form-control"
+                    value="{{ student.lname }}"
+                    required>
+
+            </div>
+
+        </div>
+
+
+        <!-- Roll + Mobile -->
+
+        <div class="row">
+
+            <div class="col-md-6 mb-4">
+
+                <label class="form-label">
+                    Roll Number
+                </label>
+
+                <input
+                    type="number"
+                    name="roll"
+                    class="form-control"
+                    value="{{ student.roll }}"
+                    required>
+
+            </div>
+
+
+            <div class="col-md-6 mb-4">
+
+                <label class="form-label">
+                    Mobile Number
+                </label>
+
+                <input
+                    type="tel"
+                    name="mobno"
+                    class="form-control"
+                    value="{{ student.mobno }}"
+                    maxlength="10"
+                    required>
+
+            </div>
+
+        </div>
+
+
+        <!-- Buttons -->
+
+        <div class="form-actions">
+
+            <a
+                href="/students"
+                class="btn btn-light">
+
+                Cancel
+
+            </a>
+
+            <button
+                type="submit"
+                class="btn btn-primary">
+
+                <i class="bi bi-check2-circle"></i>
+
+                Save Changes
+
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
 
 {% endblock %}
