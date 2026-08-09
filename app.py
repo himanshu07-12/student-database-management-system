@@ -137,7 +137,7 @@ def update_page(adm):
     )
 
 
-@app.route("/delete/<int:adm>")
+@app.route("/delete/<int:adm>", methods=["POST"])
 @login_required
 def delete_page(adm):
 
@@ -149,8 +149,6 @@ def delete_page(adm):
         flash(message, "danger")
 
     return redirect("/students")
-
-
 @app.route("/logout")
 def logout():
     session.clear()
