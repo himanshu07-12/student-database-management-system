@@ -103,18 +103,28 @@ def add_page():
     return render_template("add_student.html")
 
 
-@app.route("/update/<int:adm>", methods=["GET","POST"])
+@app.route("/update/<int:adm>", methods=["GET", "POST"])
 @login_required
 def update_page(adm):
 
-    if request.method=="POST":
+    student = get_student(adm)
 
-        fname=request.form["fname"]
-        lname=request.form["lname"]
-        roll=request.form["roll"]
-        mobno=request.form["mobno"]
+    if not student:
 
-        success,message=update_student(
+        return render_template(
+            "student_not_found.html",
+            adm=adm
+        )
+
+
+    if request.method == "POST":
+
+        fname = request.form["fname"]
+        lname = request.form["lname"]
+        roll = request.form["roll"]
+        mobno = request.form["mobno"]
+
+        success, message = update_student(
             adm,
             fname,
             lname,
@@ -123,20 +133,22 @@ def update_page(adm):
         )
 
         if success:
+
             flash(message, "success")
+
             return redirect("/students")
+
         else:
+
             flash(message, "danger")
+
             return redirect(f"/update/{adm}")
 
-    student=get_student(adm)
 
     return render_template(
         "update_student.html",
         student=student
     )
-
-
 @app.route("/delete/<int:adm>", methods=["POST"])
 @login_required
 def delete_page(adm):
