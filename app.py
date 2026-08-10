@@ -213,5 +213,11 @@ def add_header(response):
 
     return response
 
+@app.route("/search")
+@login_required
+def old_search_redirect():
+
+    return redirect("/students")
+
 if __name__ == "__main__":
     app.run(debug=True)
