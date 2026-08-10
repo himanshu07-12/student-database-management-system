@@ -2,58 +2,11 @@
 
 {% block content %}
 
+<!-- ===========================
+     PAGE HEADER
+=========================== -->
+
 <div class="students-page-header">
-
-    <div class="student-search-bar">
-
-        <form
-            action="/students"
-            method="GET"
-            class="student-search-form">
-
-            <div class="input-group">
-
-                <span class="input-group-text">
-
-                    <i class="bi bi-search"></i>
-
-                </span>
-
-                <input
-                    type="text"
-                    name="keyword"
-                    class="form-control"
-                    value="{{ keyword }}"
-                    placeholder="Search by Admission Number or Roll Number">
-
-                <button
-                    type="submit"
-                    class="btn btn-primary">
-
-                    Search
-
-                </button>
-
-            </div>
-
-        </form>
-
-
-        {% if keyword %}
-
-            <a
-                href="/students"
-                class="clear-search">
-
-                <i class="bi bi-x-circle"></i>
-
-                Clear Search
-
-            </a>
-
-        {% endif %}
-
-    </div>
 
     <div>
 
@@ -88,19 +41,96 @@
     </div>
 
 </div>
+
+
+<!-- ===========================
+     SEARCH
+=========================== -->
+
+<div class="student-search-bar">
+
+    <form
+        action="/students"
+        method="GET"
+        class="student-search-form">
+
+        <div class="input-group">
+
+            <span class="input-group-text">
+
+                <i class="bi bi-search"></i>
+
+            </span>
+
+            <input
+                type="text"
+                name="keyword"
+                class="form-control"
+                value="{{ keyword }}"
+                placeholder="Search by Admission Number or Roll Number">
+
+            <button
+                type="submit"
+                class="btn btn-primary">
+
+                Search
+
+            </button>
+
+        </div>
+
+    </form>
+
+
+    {% if keyword %}
+
+        <a
+            href="/students"
+            class="clear-search">
+
+            <i class="bi bi-x-circle"></i>
+
+            Clear Search
+
+        </a>
+
+    {% endif %}
+
+</div>
+
+
+<!-- ===========================
+     SEARCH RESULTS / TABLE
+=========================== -->
+
 {% if keyword and not students %}
 
-    <div class="empty-search">
 
-        <i class="bi bi-search"></i>
+    <!-- ===========================
+         NO SEARCH RESULTS
+    =========================== -->
 
-        <h4>No Students Found</h4>
+    <div class="students-empty-state">
+
+        <div class="empty-state-icon">
+
+            <i class="bi bi-search"></i>
+
+        </div>
+
+        <h3>
+            No Students Found
+        </h3>
 
         <p>
             No student matches "{{ keyword }}".
         </p>
 
-        <a href="/students" class="btn btn-primary">
+        <a
+            href="/students"
+            class="btn btn-primary">
+
+            <i class="bi bi-list-ul"></i>
 
             View All Students
 
@@ -108,180 +138,256 @@
 
     </div>
 
+
 {% elif students %}
 
-<div class="students-table-card">
 
-    <div class="table-responsive">
+    <!-- ===========================
+         STUDENT TABLE
+    =========================== -->
 
-        <table class="table students-table align-middle mb-0">
+    <div class="students-table-card">
 
-            <thead>
+        <div class="table-responsive">
 
-                <tr>
+            <table class="table students-table align-middle mb-0">
 
-                    <th>Admission No</th>
-                    <th>Student Name</th>
-                    <th>Roll No</th>
-                    <th>Mobile</th>
-                    <th class="text-center">Actions</th>
+                <thead>
 
-                </tr>
+                    <tr>
 
-            </thead>
+                        <th>
+                            Admission No
+                        </th>
 
-            <tbody>
+                        <th>
+                            Student Name
+                        </th>
 
-            {% for student in students %}
+                        <th>
+                            Roll No
+                        </th>
 
-                <tr>
+                        <th>
+                            Mobile
+                        </th>
 
-                    <td>
-                        <span class="admno-badge">
-                            {{ student.admno }}
-                        </span>
-                    </td>
+                        <th class="text-center">
+                            Actions
+                        </th>
 
-                    <td>
+                    </tr>
 
-                        <div class="student-name">
+                </thead>
 
-                            <div class="student-avatar">
 
-                                {{ student.fname[0] | upper }}
+                <tbody>
 
-                            </div>
+                {% for student in students %}
 
-                            <div>
+                    <tr>
 
-                                <strong>
-                                    {{ student.fname }}
-                                    {{ student.lname }}
-                                </strong>
+                        <!-- Admission Number -->
 
-                            </div>
+                        <td>
 
-                        </div>
+                            <span class="admno-badge">
 
-                    </td>
+                                {{ student.admno }}
 
-                    <td>
+                            </span>
 
-                        <span class="roll-badge">
-                            {{ student.roll }}
-                        </span>
+                        </td>
 
-                    </td>
 
-                    <td>
+                        <!-- Student Name -->
 
-                        <i class="bi bi-telephone me-2"></i>
+                        <td>
 
-                        {{ student.mobno }}
+                            <div class="student-name">
 
-                    </td>
+                                <div class="student-avatar">
 
-                    <td class="text-center">
+                                    {{ student.fname[0] | upper }}
 
-                        <a
-                            href="/update/{{ student.admno }}"
-                            class="btn btn-sm btn-outline-warning me-1">
+                                </div>
 
-                            <i class="bi bi-pencil-square"></i>
-                            Edit
+                                <div>
 
-                        </a>
+                                    <strong>
 
-                        <button
-                        type="button"
-                        class="btn btn-sm btn-outline-danger"
-                        data-bs-toggle="modal"
-                        data-bs-target="#deleteModal{{ student.admno }}">
+                                        {{ student.fname }}
+                                        {{ student.lname }}
 
-                        <i class="bi bi-trash"></i>
-                        Delete
+                                    </strong>
 
-                        </button>
-
-                    </td>
-
-                </tr>
-                <div
-                    class="modal fade"
-                    id="deleteModal{{ student.admno }}"
-                    tabindex="-1"
-                    aria-hidden="true">
-
-                    <div class="modal-dialog modal-dialog-centered">
-
-                        <div class="modal-content">
-
-                            <div class="modal-header">
-
-                                <h5 class="modal-title">
-                                    Delete Student
-                                </h5>
-
-                                <button
-                                    type="button"
-                                    class="btn-close"
-                                    data-bs-dismiss="modal">
-                                </button>
+                                </div>
 
                             </div>
 
-                             <div class="modal-body">
+                        </td>
 
-                            <p class="mb-2">
-                                Are you sure you want to delete this student?
-                            </p>
 
-                            <strong>
-                                {{ student.fname }} {{ student.lname }}
-                            </strong>
+                        <!-- Roll Number -->
 
-                            <p class="text-muted mb-0">
-                                Admission No: {{ student.admno }}
-                            </p>
+                        <td>
 
-                            <div class="delete-warning mt-3">
+                            <span class="roll-badge">
 
-                                <i class="bi bi-exclamation-triangle-fill"></i>
+                                {{ student.roll }}
 
-                                This action cannot be undone.
+                            </span>
 
-                            </div>
+                        </td>
 
-                        </div>
 
-                        <div class="modal-footer">
+                        <!-- Mobile -->
+
+                        <td>
+
+                            <i class="bi bi-telephone me-2"></i>
+
+                            {{ student.mobno }}
+
+                        </td>
+
+
+                        <!-- Actions -->
+
+                        <td class="text-center">
+
+                            <a
+                                href="/update/{{ student.admno }}"
+                                class="btn btn-sm btn-outline-warning me-1">
+
+                                <i class="bi bi-pencil-square"></i>
+
+                                Edit
+
+                            </a>
+
 
                             <button
                                 type="button"
-                                class="btn btn-light"
-                                data-bs-dismiss="modal">
+                                class="btn btn-sm btn-outline-danger"
+                                data-bs-toggle="modal"
+                                data-bs-target="#deleteModal{{ student.admno }}">
 
-                                Cancel
+                                <i class="bi bi-trash"></i>
+
+                                Delete
 
                             </button>
 
-                            <form
-                                method="POST"
-                                action="/delete/{{ student.admno }}">
+                        </td>
 
-                                <button
-                                    type="submit"
-                                    class="btn btn-danger">
+                    </tr>
 
-                                    <i class="bi bi-trash"></i>
+                {% endfor %}
 
-                                    Delete Student
+                </tbody>
 
-                                </button>
+            </table>
 
-                            </form>
+        </div>
+
+    </div>
+
+
+    <!-- ===========================
+         DELETE MODALS
+    =========================== -->
+
+    {% for student in students %}
+
+        <div
+            class="modal fade"
+            id="deleteModal{{ student.admno }}"
+            tabindex="-1"
+            aria-hidden="true">
+
+            <div class="modal-dialog modal-dialog-centered">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+                        <h5 class="modal-title">
+
+                            Delete Student
+
+                        </h5>
+
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal">
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="modal-body">
+
+                        <p class="mb-2">
+
+                            Are you sure you want to delete this student?
+
+                        </p>
+
+                        <strong>
+
+                            {{ student.fname }}
+                            {{ student.lname }}
+
+                        </strong>
+
+                        <p class="text-muted mb-0">
+
+                            Admission No: {{ student.admno }}
+
+                        </p>
+
+
+                        <div class="delete-warning mt-3">
+
+                            <i class="bi bi-exclamation-triangle-fill"></i>
+
+                            This action cannot be undone.
 
                         </div>
+
+                    </div>
+
+
+                    <div class="modal-footer">
+
+                        <button
+                            type="button"
+                            class="btn btn-light"
+                            data-bs-dismiss="modal">
+
+                            Cancel
+
+                        </button>
+
+
+                        <form
+                            method="POST"
+                            action="/delete/{{ student.admno }}">
+
+                            <button
+                                type="submit"
+                                class="btn btn-danger">
+
+                                <i class="bi bi-trash"></i>
+
+                                Delete Student
+
+                            </button>
+
+                        </form>
 
                     </div>
 
@@ -289,17 +395,48 @@
 
             </div>
 
-            {% endfor %}
+        </div>
 
-            </tbody>
+    {% endfor %}
 
-        </table>
+
+{% else %}
+
+
+    <!-- ===========================
+         EMPTY DATABASE
+    =========================== -->
+
+    <div class="students-empty-state">
+
+        <div class="empty-state-icon">
+
+            <i class="bi bi-people"></i>
+
+        </div>
+
+        <h3>
+            No Student Records
+        </h3>
+
+        <p>
+            There are currently no students registered
+            in the database.
+        </p>
+
+        <a
+            href="/add"
+            class="btn btn-primary">
+
+            <i class="bi bi-person-plus-fill"></i>
+
+            Add Your First Student
+
+        </a>
 
     </div>
 
-{% endif %}
 
-</div>
-</table>
+{% endif %}
 
 {% endblock %}
