@@ -1663,3 +1663,91 @@ body{
     font-weight:600;
 
 }
+.resume-card{
+
+    margin-top:20px;
+    max-width:200px;
+
+}
+
+.resume-card-link{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:16px 18px;
+
+    background:#1e293b;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:14px;
+
+    color:#ffffff;
+
+    text-decoration:none;
+
+    transition:.2s ease;
+
+}
+
+.resume-card-link:hover{
+
+    transform:translateY(-2px);
+
+    background:#263449;
+
+    color:#ffffff;
+
+}
+
+.resume-icon{
+
+    width:42px;
+
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:10px;
+
+    background:#2563eb;
+
+    font-size:20px;
+
+}
+
+.resume-card-link h6{
+
+    margin:0;
+
+    font-weight:600;
+
+}
+
+.resume-card-link p{
+
+    margin:3px 0 0;
+
+    color:#94a3b8;
+
+    font-size:.85rem;
+
+}
+
+.resume-download{
+
+    margin-left:auto;
+
+    font-size:18px;
+
+    color:#94a3b8;
+
+}

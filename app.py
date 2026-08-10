@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, session, flash
+from flask import Flask, render_template, request, redirect, session, flash, send_from_directory
 from auth import login
 import csv
 import sqlite3
@@ -218,6 +218,15 @@ def add_header(response):
 def old_search_redirect():
 
     return redirect("/students")
+
+@app.route("/download-resume")
+def download_resume():
+
+    return send_from_directory(
+        "static/files",
+        "himanshu_resume.pdf",
+        as_attachment=True
+    )
 
 if __name__ == "__main__":
     app.run(debug=True)
