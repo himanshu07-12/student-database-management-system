@@ -144,7 +144,7 @@
 
                     <th>Mobile</th>
 
-                    <th>Action</th>
+                    <th class="text-center">Action</th>
 
                 </tr>
 
@@ -169,13 +169,18 @@
 
                     <td>{{ student.mobno }}</td>
 
-                    <td>
+                    <td class="text-center">
+                        <div class="d-flex justify-content-center">
 
-                        <a href="/update/{{ student.admno }}"
-                           class="btn btn-sm btn-warning">
+                            <a href="/update/{{ student.admno }}"
+                                class="btn btn-sm btn-warning">
 
-                            Edit
+                                <i class="bi bi-pencil-square"></i>
+                                Edit
 
+                            </a>
+
+                        </div>
                     </td>
 
                 </tr>
