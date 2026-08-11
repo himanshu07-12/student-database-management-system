@@ -1,21 +1,6 @@
-import random
-import string
 from database import get_connection
+from werkzeug.security import check_password_hash
 
-def signup(username,password):
-    mydb = get_connection()
-    mycursor = mydb.cursor()
-    N = 5
-    login_id = ''.join(random.choices(string.digits, k=N))
-    query = """
-    INSERT INTO user_details(login_id, username, password)
-    VALUES(%s, %s, %s)
-    """
-    mycursor.execute(query, (login_id, username, password))
-    mydb.commit()
-    mycursor.close()
-    mydb.close()
-    return login_id
 
 def login(login_id, username, password):
 
@@ -23,31 +8,44 @@ def login(login_id, username, password):
     mycursor = mydb.cursor()
 
     query = """
-    SELECT *
+    SELECT LOGIN_ID, USERNAME, PASSWORD
     FROM user_details
-    WHERE login_id=%s
-    AND username=%s
-    AND password=%s
+    WHERE LOGIN_ID=%s
+    AND USERNAME=%s
     """
 
-    mycursor.execute(query, (login_id, username, password))
+    mycursor.execute(
+        query,
+        (login_id, username)
+    )
 
     user = mycursor.fetchone()
 
     if user:
 
-        history_query = """
-        INSERT INTO log_details
-        VALUES(%s,%s,SYSDATE(),NOW())
-        """
+        stored_password = user[2]
 
-        mycursor.execute(history_query, (login_id, username))
-        mydb.commit()
+        if check_password_hash(
+            stored_password,
+            password
+        ):
 
-        mycursor.close()
-        mydb.close()
+            history_query = """
+            INSERT INTO log_details
+            VALUES(%s,%s,SYSDATE(),NOW())
+            """
 
-        return True
+            mycursor.execute(
+                history_query,
+                (login_id, username)
+            )
+
+            mydb.commit()
+
+            mycursor.close()
+            mydb.close()
+
+            return True
 
     mycursor.close()
     mydb.close()
