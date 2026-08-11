@@ -29,7 +29,7 @@ def insert_student(adm, first, last, roll, mobile):
 
     # Insert Student
     query = """
-    INSERT INTO student
+    INSERT INTO student(ADMNO, FNAME, LNAME, ROLL, MOBNO)
     VALUES(%s,%s,%s,%s,%s)
     """
 
