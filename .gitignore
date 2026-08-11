@@ -3,4 +3,4 @@ __pycache__/
 .env
 .vscode/
 temp.py
-hash_passsword.py
+hash_password.py
