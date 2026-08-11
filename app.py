@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect, session, flash, send_from_directory
 from auth import login
 import csv
-import sqlite3
 from io import StringIO
 from flask import make_response
 from utils import login_required
