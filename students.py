@@ -22,7 +22,7 @@ def insert_student(adm, first, last, roll, mobile):
         return False, "Roll Number already exists"
 
     # Validate Mobile Number
-    if len(str(mobile)) != 10:
+    if not str(mobile).isdigit() or len(str(mobile)) != 10:
         mycursor.close()
         mydb.close()
         return False, "Mobile Number should be exactly 10 digits"
@@ -100,7 +100,7 @@ def update_student(adm, fname, lname, roll, mobno):
         return False, "Roll Number already exists"
 
     # Validate mobile number
-    if len(str(mobno)) != 10:
+    if not str(mobno).isdigit() or len(str(mobno)) != 10:
         mycursor.close()
         mydb.close()
         return False, "Mobile Number must contain exactly 10 digits"
