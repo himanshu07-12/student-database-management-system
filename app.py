@@ -6,8 +6,12 @@ from flask import make_response
 from utils import login_required
 from students import view_students,insert_student, update_student, delete_student, search_student, get_student, get_dashboard_stats
 from students import  get_recent_students
+import os
+from dotenv import load_dotenv
 app = Flask(__name__)
-app.secret_key = "student_database_secret_key"
+load_dotenv()
+
+app.secret_key = os.getenv("SECRET_KEY")
 
 @app.route("/")
 def home():
