@@ -246,6 +246,3 @@ ECE Undergraduate
 Aspiring Software Engineer
 Building Projects & Solving DSA
 
-## License
-
-This project is licensed under the **MIT License**.
