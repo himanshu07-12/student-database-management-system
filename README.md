@@ -50,6 +50,33 @@ The system provides an authenticated administrator interface for managing studen
 * Professional/social links
 * GitHub QR code
 * Resume download
+## Screenshots
+
+### Landing Page
+
+![SDBMS Landing Page](screenshots/01-home-hero.png)
+
+![Technology Stack](screenshots/02-home-techstack.png)
+
+![Project Features](screenshots/03-home-project-feature.png)
+
+![Developer & Footer](screenshots/04-home-footer.png)
+
+### Application
+
+![Administrator Login](screenshots/05-login.png)
+
+![Dashboard](screenshots/06-dashboard.png)
+
+![Student Management](screenshots/07-students.png)
+
+![Student Search](screenshots/08-search-student.png)
+
+![Add Student](screenshots/09-add-student.png)
+
+![Update Student](screenshots/10-update-student.png)
+
+![Delete Confirmation](screenshots/11-delete-confirmation.png)
 
 ## Technologies Used
 
