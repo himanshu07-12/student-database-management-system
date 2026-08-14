@@ -54,9 +54,9 @@ The system provides an authenticated administrator interface for managing studen
 
 ### Landing Page
 
-![SDBMS Landing Page](screenshots/01-home-hero.png)
+![SDBMS Landing Page](screenshots/01-home-hero-section.png)
 
-![Technology Stack](screenshots/02-home-techstack.png)
+![Technology Stack](screenshots/02-home-tech-stack.png)
 
 ![Project Features](screenshots/03-home-project-feature.png)
 
